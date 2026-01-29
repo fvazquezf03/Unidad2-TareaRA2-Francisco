@@ -1,13 +1,14 @@
-site_name: PPS Unidad1-TareaRA1-FranciscoVazquez
-site_description: 'Tarea RA1 - Lavadero de Coches'
+site_name: PPS Unidad2-TareaRA2-FranciscoVazquez
+site_description: 'Tarea RA2 - Lavadero de Coches'
 site_author: Francisco Vázquez
 
 nav:
   - Inicio: index.md
   - '1. Trazado de Vulnerabilidad de GoAnywhere': 'TrazadoVulnerabilidadGoAnywhere/TrazadoVulnerabilidadGoAnywhere.md'
-  - '2. Documentación(Ataque_SQL_FORM).': ' Documentación(Ataque_SQL_FORM)/Documentación(Ataque_SQL_FORM).md'
-  - '3.Comprobación Requisitos Aplicación': 'ComprobaciónRequisitosAplicación/ComprobacionRequisitosAplicacion_Francisco.md'
-  - '4. Reflexión sobre los riesgos de las aplicaciones': 'Reflexiónsobrelosriesgosdelasaplicaciones/Reflexión código.md'
+  - '2. Documentación(Ataque_SQL_FORM)': 'Documentación(Ataque_SQL_FORM)/Documentación(Ataque_SQL_FORM).md'
+  - '3. Comprobación Requisitos Aplicación': 'ComprobaciónRequisitosAplicación/ComprobacionRequisitosAplicacion_Francisco.md'
+  - '4. Reflexión sobre los riesgos de las aplicaciones': 'Reflexiónsobrelosriesgosdelasaplicaciones/Reflexiónsobrelosriesgosdelasaplicaciones.md'
+
 
 docs_dir: doc
 
@@ -29,4 +30,5 @@ markdown_extensions:
       permalink: true
   - tables
   - pymdownx.highlight
+
   - pymdownx.superfences
