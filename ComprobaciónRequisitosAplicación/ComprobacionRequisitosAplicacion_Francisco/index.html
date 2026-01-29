@@ -1,0 +1,1151 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tarea RA2 - Lavadero de Coches">
+      
+      
+        <meta name="author" content="Francisco Vázquez">
+      
+      
+      
+        <link rel="prev" href="../../Documentaci%C3%B3n%28Ataque_SQL_FORM%29/Documentaci%C3%B3n%28Ataque_SQL_FORM%29/">
+      
+      
+        <link rel="next" href="../../Reflexi%C3%B3nsobrelosriesgosdelasaplicaciones/Reflexi%C3%B3nsobrelosriesgosdelasaplicaciones/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>3. Comprobación Requisitos Aplicación - PPS Unidad2-TareaRA2-FranciscoVazquez</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#codigo-malicioso-v10-malicious-code" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="PPS Unidad2-TareaRA2-FranciscoVazquez" class="md-header__button md-logo" aria-label="PPS Unidad2-TareaRA2-FranciscoVazquez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PPS Unidad2-TareaRA2-FranciscoVazquez
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Comprobación Requisitos Aplicación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label=""  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PPS Unidad2-TareaRA2-FranciscoVazquez" class="md-nav__button md-logo" aria-label="PPS Unidad2-TareaRA2-FranciscoVazquez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PPS Unidad2-TareaRA2-FranciscoVazquez
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TrazadoVulnerabilidadGoAnywhere/TrazadoVulnerabilidadGoAnywhere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Trazado de Vulnerabilidad de GoAnywhere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Documentaci%C3%B3n%28Ataque_SQL_FORM%29/Documentaci%C3%B3n%28Ataque_SQL_FORM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Documentación(Ataque_SQL_FORM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Comprobación Requisitos Aplicación
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Comprobación Requisitos Aplicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-malicioso-v10-malicious-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código malicioso (V10 – Malicious Code)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Código malicioso (V10 – Malicious Code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-comprobaciones-realizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de comprobaciones realizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusiones-sobre-codigo-malicioso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusiones sobre código malicioso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-de-entrada-v5-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación de entrada (V5 – Input Validation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validación de entrada (V5 – Input Validation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-comprobaciones-realizadas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de comprobaciones realizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusiones-sobre-validacion-de-entrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusiones sobre validación de entrada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reflexi%C3%B3nsobrelosriesgosdelasaplicaciones/Reflexi%C3%B3nsobrelosriesgosdelasaplicaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Reflexión sobre los riesgos de las aplicaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-malicioso-v10-malicious-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código malicioso (V10 – Malicious Code)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Código malicioso (V10 – Malicious Code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-comprobaciones-realizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de comprobaciones realizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusiones-sobre-codigo-malicioso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusiones sobre código malicioso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-de-entrada-v5-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación de entrada (V5 – Input Validation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validación de entrada (V5 – Input Validation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-comprobaciones-realizadas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de comprobaciones realizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusiones-sobre-validacion-de-entrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusiones sobre validación de entrada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>3. Comprobación Requisitos Aplicación</h1>
+
+<h2 id="codigo-malicioso-v10-malicious-code">Código malicioso (V10 – Malicious Code)<a class="headerlink" href="#codigo-malicioso-v10-malicious-code" title="Permanent link">&para;</a></h2>
+<p>En este apartado se han revisado los requisitos del capítulo V10 de OWASP ASVS sobre código malicioso, aplicados al código de la aplicación (<code>main_app.py</code> y <code>lavadero.py</code>).  Las verificaciones cubren tanto controles de integridad del código como la ausencia de funcionalidades ocultas o no deseadas. </p>
+<h3 id="resumen-de-comprobaciones-realizadas">Resumen de comprobaciones realizadas<a class="headerlink" href="#resumen-de-comprobaciones-realizadas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>#</th>
+<th>ASVS Level</th>
+<th>CWE</th>
+<th>Verification Requirement</th>
+<th>Valid</th>
+<th>Source Code Reference</th>
+<th>Comment</th>
+<th>Tool Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code Integrity Controls</td>
+<td>10.1.1</td>
+<td>3</td>
+<td>749</td>
+<td>Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.</td>
+<td>Non-valid</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>Solo se ha realizado revisión manual; no se ha utilizado ninguna herramienta de análisis estático (SAST) tipo Semgrep o Bandit para detectar código potencialmente malicioso.</td>
+<td>Malicious Code Search</td>
+</tr>
+<tr>
+<td>Malicious Code Search</td>
+<td>10.2.1</td>
+<td>2</td>
+<td>359</td>
+<td>Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission before collecting any data.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>La aplicación no realiza conexiones de red ni usa librerías externas con “phone home” o telemetría; solo lógica local en memoria.</td>
+<td></td>
+</tr>
+<tr>
+<td>Malicious Code Search</td>
+<td>10.2.2</td>
+<td>2</td>
+<td>272</td>
+<td>Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as contacts, cameras, microphones, or location.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se ejecuta en móvil ni accede a sensores o permisos de privacidad (contactos, cámara, micro, localización); es una app de consola.</td>
+<td></td>
+</tr>
+<tr>
+<td>Malicious Code Search</td>
+<td>10.2.3</td>
+<td>3</td>
+<td>507</td>
+<td>Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.</td>
+<td>Valid</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>Revisión de <code>lavadero.py</code> y <code>main_app.py</code>: no hay cuentas ocultas, claves embebidas, código ofuscado ni funcionalidades escondidas; solo constantes de fase y lógica del lavado.</td>
+<td></td>
+</tr>
+<tr>
+<td>Malicious Code Search</td>
+<td>10.2.4</td>
+<td>3</td>
+<td>511</td>
+<td>Verify that the application source code and third party libraries do not contain time bombs by searching for date and time related functions.</td>
+<td>Valid</td>
+<td><code>lavadero.py</code></td>
+<td>No se usan funciones de fecha/hora; solo un contador de pasos para evitar bucles infinitos, que no actúa como “time bomb”.</td>
+<td></td>
+</tr>
+<tr>
+<td>Malicious Code Search</td>
+<td>10.2.5</td>
+<td>3</td>
+<td>511</td>
+<td>Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.</td>
+<td>Valid</td>
+<td><code>lavadero.py</code></td>
+<td>El método <code>cobrar</code> suma importes fijos y la lógica de fases solo gestiona el flujo del lavado; no hay <em>salami attacks</em>, bypasses ocultos ni <em>logic bombs</em>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Malicious Code Search</td>
+<td>10.2.6</td>
+<td>3</td>
+<td>507</td>
+<td>Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality.</td>
+<td>Valid</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>Todas las funciones forman parte del comportamiento normal (simulación, impresión de estados); no se han encontrado <em>Easter eggs</em> ni funcionalidades no documentadas.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deployed Application Integrity Controls</td>
+<td>10.3.1</td>
+<td>1</td>
+<td>16</td>
+<td>Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>La aplicación no tiene mecanismo de auto-actualización ni descarga código ejecutable; se distribuye como script Python estático.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deployed Application Integrity Controls</td>
+<td>10.3.2</td>
+<td>1</td>
+<td>353</td>
+<td>Verify that the application employs integrity protections, such as code signing or subresource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No se cargan módulos, plugins ni código desde fuentes externas o Internet en tiempo de ejecución; solo se importa <code>Lavadero</code> desde un módulo local.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deployed Application Integrity Controls</td>
+<td>10.3.3</td>
+<td>1</td>
+<td>350</td>
+<td>Verify that the application has protection from subdomain takeovers if the application relies upon DNS entries or DNS subdomains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets or similar.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>La aplicación no depende de DNS, subdominios ni recursos en la nube; se ejecuta localmente sin dominios configurados.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="conclusiones-sobre-codigo-malicioso">Conclusiones sobre código malicioso<a class="headerlink" href="#conclusiones-sobre-codigo-malicioso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No se han encontrado puertas traseras, <em>time bombs</em>, <em>salami attacks</em>, <em>Easter eggs</em> ni funcionalidades ocultas; el comportamiento del código coincide con la lógica de negocio descrita.  </li>
+<li>El único control marcado como <strong>Non-valid</strong> es el uso de herramienta SAST (10.1.1); sería recomendable integrar en el flujo de desarrollo una herramienta como Semgrep o Bandit para mejorar la detección de código potencialmente malicioso. </li>
+</ul>
+<h2 id="validacion-de-entrada-v5-input-validation">Validación de entrada (V5 – Input Validation)<a class="headerlink" href="#validacion-de-entrada-v5-input-validation" title="Permanent link">&para;</a></h2>
+<p>En este apartado se han revisado los requisitos del capítulo V5 de OWASP ASVS aplicables al nivel de seguridad definido para la aplicación del lavadero (<code>main_app.py</code> y <code>lavadero.py</code>).  Dado que se trata de una aplicación de consola sin entrada libre de usuario, muchos controles orientados a entornos web o APIs han resultado <strong>Not Applicable</strong>. </p>
+<h3 id="resumen-de-comprobaciones-realizadas_1">Resumen de comprobaciones realizadas<a class="headerlink" href="#resumen-de-comprobaciones-realizadas_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>#</th>
+<th>ASVS Level</th>
+<th>CWE</th>
+<th>Verification Requirement</th>
+<th>Valid</th>
+<th>Source Code Reference</th>
+<th>Comment</th>
+<th>Tool Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input Validation Requirements</td>
+<td>5.1.1</td>
+<td>1</td>
+<td>235</td>
+<td>Defensas frente a HTTP parameter pollution.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No hay endpoints HTTP ni parámetros GET/POST/cookies/headers; la app solo usa booleanos internos controlados por el propio programa.</td>
+<td></td>
+</tr>
+<tr>
+<td>Input Validation Requirements</td>
+<td>5.1.2</td>
+<td>1</td>
+<td>915</td>
+<td>Protección frente a mass parameter assignment en frameworks.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>No existe binding automático ni modelos; las opciones se asignan explícitamente a atributos (<code>prelavadoamano</code>, <code>secadoamano</code>, <code>encerado</code>).</td>
+<td></td>
+</tr>
+<tr>
+<td>Input Validation Requirements</td>
+<td>5.1.3</td>
+<td>1</td>
+<td>20</td>
+<td>Validación positiva (allow list) de toda entrada (formularios, REST, URL, etc.).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No hay formularios, JSON ni parámetros libres; solo se manejan flags booleanos definidos en código.</td>
+<td></td>
+</tr>
+<tr>
+<td>Input Validation Requirements</td>
+<td>5.1.4</td>
+<td>1</td>
+<td>20</td>
+<td>Validación de datos estructurados contra esquema (longitud, patrón, etc.).</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>No se tratan datos estructurados de usuario (teléfono, tarjeta, etc.), solo números de fase y un acumulador de ingresos.</td>
+<td></td>
+</tr>
+<tr>
+<td>Input Validation Requirements</td>
+<td>5.1.5</td>
+<td>1</td>
+<td>601</td>
+<td>Control de destinos de redirecciones/forwards mediante allow list.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No existen redirecciones ni forwards de URL; es una aplicación de consola sin navegación web.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.1</td>
+<td>1</td>
+<td>116</td>
+<td>Sanitizar HTML procedente de editores WYSIWYG.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se acepta ni genera HTML; únicamente salida de texto plano en consola.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.2</td>
+<td>1</td>
+<td>138</td>
+<td>Sanitizar datos no estructurados (caracteres permitidos, longitud).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No se procesan cadenas libres de usuario; las entradas son parámetros booleanos internos.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.3</td>
+<td>1</td>
+<td>147</td>
+<td>Sanitizar entradas antes de pasarlas a sistemas de correo (SMTP/IMAP).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>La aplicación no envía correos ni interactúa con sistemas SMTP/IMAP.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.4</td>
+<td>1</td>
+<td>95</td>
+<td>Evitar <code>eval()</code> y ejecución dinámica de código, o sanear/sandboxear entrada si se usa.</td>
+<td>Valid</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No se usa <code>eval</code> ni ejecución dinámica de código; solo llamadas directas a funciones y métodos de <code>Lavadero</code>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.5</td>
+<td>1</td>
+<td>94</td>
+<td>Protección frente a template injection.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No hay motores de plantillas ni renderizado de vistas HTML/templating.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.6</td>
+<td>1</td>
+<td>918</td>
+<td>Protección frente a SSRF validando URLs/metadatos HTTP.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No se realizan peticiones HTTP salientes ni se accede a URLs de usuario; SSRF no aplica.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.7</td>
+<td>1</td>
+<td>159</td>
+<td>Sanitizar o sandboxear contenido SVG scriptable.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se manejan ficheros SVG ni gráficos; solo texto.</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanitization and Sandboxing Requirements</td>
+<td>5.2.8</td>
+<td>1</td>
+<td>94</td>
+<td>Sanitizar/sandboxear lenguajes de plantilla scriptables (Markdown, CSS, XSL, BBCode, etc.).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se procesan contenidos Markdown, CSS, XSL ni BBCode procedentes de usuario.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.1</td>
+<td>1</td>
+<td>116</td>
+<td>Encoding de salida adecuado al contexto (HTML, JS, URL, etc.).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No hay contextos HTML/JS/URL/headers; la salida es texto plano a consola sin datos de usuario.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.2</td>
+<td>1</td>
+<td>176</td>
+<td>Preservar charset y locale del usuario al hacer encoding de salida.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se realiza encoding específico ni se cambian juegos de caracteres; se usan cadenas internas de Python.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.3</td>
+<td>1</td>
+<td>79</td>
+<td>Escapado de salida para proteger contra XSS (reflected, stored, DOM).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>La aplicación no corre en navegador ni genera HTML, por lo que XSS no aplica.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.4</td>
+<td>1</td>
+<td>89</td>
+<td>Uso de queries parametrizadas/ORM para prevenir SQL injection.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>No existe base de datos ni se construyen queries SQL/NoSQL; los datos se mantienen en memoria.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.5</td>
+<td>1</td>
+<td>89</td>
+<td>Escapado específico (p.ej. SQL) cuando no hay queries parametrizadas.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>Al no haber consultas a BBDD, no es necesario aplicar mecanismos de escapado de SQL.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.6</td>
+<td>1</td>
+<td>830</td>
+<td>Protección frente a JavaScript/JSON injection, DOM XSS, etc.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se genera ni ejecuta JavaScript ni JSON en clientes; no hay superficie para inyección JS/JSON.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.7</td>
+<td>1</td>
+<td>943</td>
+<td>Protección frente a LDAP injection.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>La aplicación no usa LDAP ni realiza consultas a directorios.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.8</td>
+<td>1</td>
+<td>78</td>
+<td>Protección frente a OS command injection.</td>
+<td>Valid</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No se ejecutan comandos del sistema operativo (<code>os.system</code>, <code>subprocess</code>, etc.), por lo que no hay riesgo de OS command injection.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.9</td>
+<td>1</td>
+<td>829</td>
+<td>Protección frente a Local/Remote File Inclusion (LFI/RFI).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se abren ficheros basados en rutas de usuario; no hay LFI/RFI.</td>
+<td></td>
+</tr>
+<tr>
+<td>Output encoding and Injection Prevention Requirements</td>
+<td>5.3.10</td>
+<td>1</td>
+<td>643</td>
+<td>Protección frente a XML/XPath injection.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>No se procesan XML ni se utilizan consultas XPath; riesgo de XML/XPath injection inexistente.</td>
+<td></td>
+</tr>
+<tr>
+<td>Memory, String and Unmanaged Code Requirements</td>
+<td>5.4.1</td>
+<td>2</td>
+<td>120</td>
+<td>Uso de primitivas seguras de memoria/cadenas frente a overflows.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>La app es de Nivel 1 y está escrita en Python gestionado, sin punteros ni código nativo; estos controles aplican más a C/C++.</td>
+<td></td>
+</tr>
+<tr>
+<td>Memory, String and Unmanaged Code Requirements</td>
+<td>5.4.2</td>
+<td>2</td>
+<td>134</td>
+<td>Evitar que format strings tomen entrada potencialmente hostil.</td>
+<td>Valid</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>Las format strings usadas en <code>print</code> son literales constantes, no construidas con entrada potencialmente hostil.</td>
+<td></td>
+</tr>
+<tr>
+<td>Memory, String and Unmanaged Code Requirements</td>
+<td>5.4.3</td>
+<td>2</td>
+<td>190</td>
+<td>Validación de signo, rango e input para evitar integer overflows.</td>
+<td>Not Applicable</td>
+<td><code>lavadero.py</code></td>
+<td>Solo se manejan contadores y precios pequeños en coma flotante; no hay cálculos que puedan provocar integer overflow y la app es Nivel 1.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deserialization Prevention Requirements</td>
+<td>5.5.1</td>
+<td>1</td>
+<td>502</td>
+<td>Integridad/cifrado en objetos serializados.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se serializan objetos ni se almacenan datos usando formatos binarios/serializados.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deserialization Prevention Requirements</td>
+<td>5.5.2</td>
+<td>1</td>
+<td>611</td>
+<td>Configuración segura de parsers XML (sin entidades externas) para evitar XXE.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se usan parsers XML ni se procesan entidades externas; no hay superficie para XXE.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deserialization Prevention Requirements</td>
+<td>5.5.3</td>
+<td>1</td>
+<td>502</td>
+<td>Evitar o proteger la deserialización de datos no confiables (JSON/XML/YAML, etc.).</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code>, <code>lavadero.py</code></td>
+<td>No se deserializan datos JSON/XML/YAML de fuentes externas; solo se usan estructuras en memoria.</td>
+<td></td>
+</tr>
+<tr>
+<td>Deserialization Prevention Requirements</td>
+<td>5.5.4</td>
+<td>1</td>
+<td>95</td>
+<td>Uso de <code>JSON.parse</code> en lugar de <code>eval()</code> para parsear JSON en entornos JS.</td>
+<td>Not Applicable</td>
+<td><code>main_app.py</code></td>
+<td>No se parsea JSON ni se usa <code>eval</code> para interpretar datos; no se reciben documentos JSON.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="conclusiones-sobre-validacion-de-entrada">Conclusiones sobre validación de entrada<a class="headerlink" href="#conclusiones-sobre-validacion-de-entrada" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La aplicación no expone interfaces web ni APIs, y no recibe entrada libre de usuario, por lo que la mayoría de requisitos de validación, sanitización y encoding de salida resultan <strong>Not Applicable</strong>. </li>
+<li>Los requisitos aplicables (no uso de <code>eval</code>, ausencia de comandos de sistema y uso de format strings constantes) se cumplen en el código actual, lo que reduce la superficie de ataque relacionada con inyección y ejecución de código. </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
